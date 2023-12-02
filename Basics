@@ -1,0 +1,52 @@
+#R Conditional Statements
+if (n == 5) {
+  print('n is equal to five')
+}
+
+#read file
+read_csv('file.csv')
+
+#Exclude Columns
+select(-genre, -year_founded)
+
+#Filter
+filter(artist, genre=="Rock", listener>200000)
+
+#Data at Glance
+head()
+summary()
+
+arrange(desc(column))
+
+#Select first two columns
+weather %>% select(1:2)
+
+#Rename
+rename(Newname, oldname)
+
+#Create new columns by transforming existing one(removes original columns)
+transmute(population, increase = total_population/lag(total_population))
+
+#Adds to columns to existing data
+mutate(heights, cm = inches * 0.39)
+
+#Replace string 1 to empty
+teams_clean <- gsub("1", "", teams)
+
+#Keep only unique rows 
+distinct(dataframe)
+
+#Get the list of Files, Read it, and Combine
+file <- list.files(pattern ='lunch_*.csv')
+df_list <- lapply(file, read_csv)
+df <- bind_rows(df_list)
+
+#Change data type
+as.numeric(column)
+
+#Generate New columns (Target, start, end)
+str_sub('Marya1984', 1,5)
+
+#Separate columns
+separate(newcolumn1, newcolumn2, dataframe)
+
